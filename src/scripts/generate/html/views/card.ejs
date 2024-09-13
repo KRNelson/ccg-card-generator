@@ -1,0 +1,30 @@
+<div class="card font-monospace bg-light border border-dark">
+  <div class="card-header bg-secondary">
+    <h1 class="card-title text-center"><%= card.name_raw %></h1>
+  </div>
+
+
+  <div class="card-body pb-0 bg-info">
+    <% if(card.image_raw !== '') {%>
+      <div class="text-center">
+        <img class="card-img border border-dark" src="<%= card.image_raw %>" alt="<%= card.name_raw %> Image"/>
+      </div>
+    <%}%>
+
+      <div class="justify-content-center border border-dark rounded overflow-hidden mt-2">
+      <table class="table table-sm m-0">
+        <tr><td>Ratio</td><td><%= card.ratio_raw %></td></tr>
+        <tr><td>Crete</td><td><%= card.crete_raw %> grams</td></tr>
+        <tr><td>Water</td><td><%= card.water_raw %> grams</td></tr>
+        <tr><td>Pressure</td><td><%= card["pressure-time_raw"] %></td></tr>
+        <tr><td>Water</td><td><%= card["water-time_raw"] %></td></tr>
+      </table>
+      </div>
+    </div>
+
+  <div class="card-footer bg-secondary">
+    <small class="text-white">
+      Series: <%= card.series_raw %> Batch: <%= card.batch_raw %> <%= card.phase_raw %>
+    </small>
+  </div>
+</div>

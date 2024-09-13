@@ -2,6 +2,12 @@ body* > {
   box-sizing: border-box;
 }
 
+.image-for-background {
+  background-image: url("./src/images/IMG_2121.jpg");
+  width: 100%;
+  height: 100%;
+}
+
 /* Reset */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126

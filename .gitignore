@@ -11,3 +11,8 @@ yarn-error.log
 .DS_Store
 
 *.pdf
+*.jpg
+*.png
+*.xmp
+*.csv
+src/scripts/generate/html/public/images/*

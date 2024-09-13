@@ -1,0 +1,31 @@
+.page {
+    height: page-height();
+    width: page-width();
+    max-height: page-max-height();
+    max-width: page-max-width();
+    padding: page-max-padding();
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    outline: 1px dashed black;
+
+    page-break-after: always;
+}
+
+@page {
+    size: page-width() page-height();
+}
+
+.document {
+    margin: 0;
+  }
+  
+  .pages {
+    display: flex;
+    flex-direction: column;
+    font-family: Helvetica, sans-serif;
+    flex-wrap: wrap;
+  }
+  
+ 

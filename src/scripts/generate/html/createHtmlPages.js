@@ -1,4 +1,4 @@
-import { marked } from 'marked';
+import { marked } from "marked";
 
 const generateCard = (card, dimensions) => {
   return `
@@ -14,6 +14,7 @@ const generateCard = (card, dimensions) => {
       ${Object.keys(card)
         .map((key) => {
           const value = card[key];
+
 
           return `
             <div class="card-section-${key}">

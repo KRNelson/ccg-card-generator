@@ -28,6 +28,7 @@
   border-radius: 5px;
   outline: 1px dashed #aaa;
   border: 1px solid black;
+  z-index: 1;
 }
 
 .card .card-section-name {
@@ -35,15 +36,24 @@
   width: 100%;
 }
 
-.card .card-section-type {
+.card .card-section-image {
+  width: 25mm;
+  height: 25mm;
+}
+
+.card .card-section-image img{
+  height: 100%;
   width: 100%;
 }
 
-.card .card-section-value {
+.card .card-section-ratio {
   width: 100%;
-  font-size: 2em;
 }
 
-.card .card-section-text {
+.card .card-section-crete {
+  width: 100%;
+}
+
+.card .card-section-water {
   width: 100%;
 }

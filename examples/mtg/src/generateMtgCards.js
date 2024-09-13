@@ -12,12 +12,12 @@ const generateCard = (card, dimensions) => {
       <div class="card-background">
         <div class="card-frame">
           <div class="frame-header">
-            <h1 class="name">${card.name}</h1>
+            <h1 class="name">${card.name}@@@</h1>
             
             <i class="ms ms-g" id="mana-icon"></i>
           </div>
 
-          <img class="frame-art" src="https://image.ibb.co/fqdLEn/nissa.jpg" alt="nissa art">
+          <img class="frame-art image-for-background" alt="nissa art">
 
           <div class="frame-type-line">
             <h1 class="type">Legendary Enchantment</h1>

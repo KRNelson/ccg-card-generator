@@ -2,6 +2,8 @@ import * as htmlPdfChrome from "html-pdf-chrome";
 import fs from "fs";
 import generateHtml from "../html";
 
+import express from "express";
+
 const defaultPageDimensions = {
   height: 282,
   width: 216,
@@ -25,7 +27,8 @@ const defaultPdfOptions = {
   },
 };
 
-const defaultStylesheet = "./node_modules/ccg-card-generator/lib/styles/prototype.css";
+const defaultStylesheet =
+  "./node_modules/ccg-card-generator/lib/styles/prototype.css";
 
 const writeDebugHTML = (html) => {
   console.log("Saving interim HTML...");
@@ -37,14 +40,14 @@ const writeDebugHTML = (html) => {
 
 const generatePdf = (cards, options) => {
   const {
-  	debug=true,
-  	destination="./output.pdf", 
-  	pdfOptions, 
-  	style=defaultStylesheet,
-  	pageDimensions,
+    debug = true,
+    destination = "./output.pdf",
+    pdfOptions,
+    style = defaultStylesheet,
+    pageDimensions,
     cardDimensions,
     htmlGenerator,
-  } = options
+  } = options;
 
   const dimensions = {
     page: {
@@ -53,14 +56,14 @@ const generatePdf = (cards, options) => {
     },
     card: {
       ...defaultCardDimensions,
-      ...cardDimensions,      
+      ...cardDimensions,
     },
-  }
+  };
 
-  if (debug) console.log(cards, options)
+  if (debug) console.log(cards, options);
 
   console.log("Generating cards...");
-  if (debug) console.log(style, dimensions)
+  if (debug) console.log(style, dimensions);
 
   const html = generateHtml(cards, style, dimensions, htmlGenerator);
 
@@ -68,18 +71,29 @@ const generatePdf = (cards, options) => {
     writeDebugHTML(html);
   }
 
-  console.log("Creating PDF...");
+  console.log("Creating PDF@@@");
 
   const printOptions = {
-  	...defaultPdfOptions,
-  	...pdfOptions, 
-  }
+    ...defaultPdfOptions,
+    ...pdfOptions,
+  };
   console.log("Print options:", printOptions);
+
+  // Spin up an express server to serve images to the pdf generator.
+  //    The chrome browser will block image sources that link directly to the computer.
+  const folder = "public";
+  const port = 3000;
+  const app = express();
+  app.use(express.static(`${process.cwd()}/src/${folder}`));
+  const server = app.listen(port);
 
   return htmlPdfChrome
     .create(html, printOptions)
     .then((newPdf) => newPdf.toFile(destination || "test.pdf"))
-    .then((_) => console.log(`${destination} generated`));
+    .then((_) => {
+      console.log(`${destination} generated`);
+      server.close();
+    });
 };
 
 export default generatePdf;

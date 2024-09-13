@@ -1,0 +1,17 @@
+<div class="card bg-light border border-dark">
+    <div class="card-header bg-secondary font-monospace">
+      <h1 class="card-title text-center"><%= card.name_raw %></h1>
+    </div>
+  
+    <div class="card-body pb-0 bg-info">
+        <div class="text-center">
+          <img class="card-img border border-dark bg-white" src="<%= card.image_raw %>" alt="<%= card.name_raw %> Image"/>
+        </div>
+    </div>
+
+    <div class="card-footer bg-secondary text-center">
+        <small class="text-white">
+            <%= card.flavor_raw %>
+        </small>
+      </div>
+</div>

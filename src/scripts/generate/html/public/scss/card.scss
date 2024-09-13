@@ -1,0 +1,15 @@
+.card {
+    height: card-height();
+    width: card-width();
+
+    margin-bottom: card-margin();
+
+    .card-img {
+        max-height: calc(card-height());
+        max-width: calc(card-width());
+    }
+
+    .card-body table {
+        font-size: 10pt;
+    }
+}

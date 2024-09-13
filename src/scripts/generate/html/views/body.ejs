@@ -1,0 +1,7 @@
+<body class="document">
+    <div class="pages">
+        <% cardPages.forEach((cardPage, i) => { %>
+            <%- include('page', {cardPage, pageNumber: i}) %>
+        <% }) %>
+    </div>
+</body>

@@ -3,11 +3,12 @@
   "version": "2.3.4",
   "description": "Turn markdown into CCG cards",
   "main": "lib/index.js",
+  "type": "module",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "build": "./node_modules/.bin/babel src --out-dir lib --ignore '**/*.spec.js' && copyup src/styles/* lib",
+    "build": "babel src --out-dir lib --ignore '**/*.spec.js' && copyup src/styles/* lib",
     "format": "prettier --write src/",
     "format:staged": "pretty-quick --staged --pattern ./src/**",
     "test": "jest --passWithNoTests",
@@ -44,14 +45,24 @@
   },
   "homepage": "https://github.com/metamagic-games/ccg-card-generator#readme",
   "dependencies": {
+    "bootstrap": "^5.3.3",
+    "compile-sass": "^2.0.0",
     "copyfiles": "^2.4.1",
+    "csv-parse": "^5.5.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
     "fs": "0.0.1-security",
     "html-pdf-chrome": "^0.8.4",
-    "marked": "^9.0.3"
+    "jquery": "^3.7.1",
+    "jsdom": "^24.0.0",
+    "lodash": "^4.17.21",
+    "marked": "^9.0.3",
+    "sass": "^1.75.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.15",
     "@babel/core": "^7.22.20",
+    "@babel/node": "^7.22.19",
     "@babel/preset-env": "^7.22.20",
     "babel-jest": "^29.7.0",
     "husky": "^8.0.0",
